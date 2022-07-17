@@ -7,8 +7,8 @@ const BatteryDetail = (props) => {
   const { id } = useParams();
   const [batteryList, setBatteryList] = useState([])
   let location = ""
-  let health = 0;
-  let charge = 0;
+  let health = "N/A";
+  let charge = "N/A";
   let issues = "";
 
 let status= "";
@@ -27,12 +27,12 @@ for(let i =0; i<batteryList.length; i++){
     if(id === batteryList[i].id){
         // health check
         if(batteryList[i].stateOfHealth != null ){
-            health = batteryList[i].stateOfHealth
+            health = `${batteryList[i].stateOfHealth}%`
         }
 
         // charge check
         if(batteryList[i].stateOfCharge != null ){
-            charge = batteryList[i].stateOfCharge
+            charge = `${batteryList[i].stateOfCharge}%`
         }
 
         // connection status check
@@ -70,7 +70,7 @@ for(let i =0; i<batteryList.length; i++){
           { batteryList[i].location ? null : batteryList[i].location ="N/A" }
             <li><p> <i className="fas fa-map-marker-alt"></i>{ batteryList[i].location }</p></li>
             <li><p><i className="fas fa-bolt"></i> { batteryList[i].voltage  }V</p></li>
-            <li><p><i className="fas fa-battery-half"></i>{ charge}%</p></li>
+            <li><p><i className="fas fa-battery-half"></i>{ charge}</p></li>
             <li><p><i className="fas fa-broadcast-tower"></i>{ batteryList[i].lastConnectionTime.substring(0, 10)} @ { batteryList[i].lastConnectionTime.substring(11, 19)} </p></li>
             
             <li><p><i className="fa fa-comments"></i>Connection status : { status}</p></li>
@@ -82,7 +82,7 @@ for(let i =0; i<batteryList.length; i++){
           <div className="row">
             <div className="home-info padd-15">
             
-              <h3 className="hello">Battery Health : <span className="name">{health }%</span></h3>
+              <h3 className="hello">Battery Health : <span className="name">{health }</span></h3>
               <h3 className="my-profession">Battery Capacity : <span className="typing" style={{color:'#9dffc8'}}>{batteryList[i].capacity  }Ah</span></h3>
               <p>Issues : <span style={{color:'red'}}>{issues}</span> </p>
              

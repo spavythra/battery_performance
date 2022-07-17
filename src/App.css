@@ -34,12 +34,13 @@ body
 
 .header{
   padding: 15px;
-  background-color: #9dffc8;
+  background-color: #263548;
   margin-bottom: 30px;
+  color: white;
 }
 .header h5{
   /* margin-left: 20%; */
-  color: #504e70;
+  color: rgb(210, 210, 210);
   font-style: italic;
 }
 
@@ -57,7 +58,9 @@ th, td {
 }
 
 th{
-  background-color: rgb(157, 255, 200);
+  /* background-color: rgb(157, 255, 200); */
+  background-color: #e37373;
+  color: white;
 }
 
 tr:nth-child(even) {

@@ -71,7 +71,7 @@ const ListItems= () => {
                       <tr>
                           <th>ID</th>
                           <th>Location</th>
-                          <th>State of Charge</th>
+                          <th>Charge (%)</th>
                           <th>Connection Status</th>
                       </tr>
                   </thead>
