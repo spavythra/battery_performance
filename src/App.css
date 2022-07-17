@@ -228,7 +228,7 @@ ul
 .aside .logo
 {
     position: absolute;
-    top: 50px;
+    top: 30px;
     font-size: 30px;
     text-transform: capitalize;
 }
@@ -425,5 +425,39 @@ h3.my-profession
     margin: auto;
     border-radius: 5px;
     height: 400px;
+}
+
+@media (max-width:700px)
+{
+    /* .aside
+    {
+        left: -270px;
+    } */
+
+    .aside .nav
+{
+    margin-top: 140px;
+}
+    .main-content
+    {
+        padding-left: 0;
+    }
+    .home .home-info
+    {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .wrapper{
+      max-width: 700px;
+    }
+    .wrapper .card{
+      width: calc(50% - 20px);
+      margin-bottom: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+   
 }
 
