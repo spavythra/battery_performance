@@ -1,6 +1,9 @@
 import React, { useEffect,useState } from 'react';
 import axios from 'axios';
-import _ from "lodash"
+import _ from "lodash";
+import { Link } from 'react-router-dom';
+import BatteryDetail from './BatteryDetail';
+
 
 const pageSize = 20;
 
@@ -8,6 +11,7 @@ const ListItems= () => {
     const [batteryList, setBatteryList] = useState([])
     const [paginatedList, setPaginatedList] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
+    const [show, setShow] = useState(false)
 
     useEffect(() =>{
         axios.get('https://f2byongc84.execute-api.eu-central-1.amazonaws.com/webdev_test_fetch_batteries')
@@ -51,7 +55,7 @@ const ListItems= () => {
           
           return(
               <tr key={item.id}>
-                  <td>{item.id}</td>
+                  <Link to={`/battery/${item.id}`} target='_blank' ><td>{item.id}</td></Link>
                   <td>{correct_location}</td>
                   <td>{correct_stateOfCharge }</td>
                   <td>{item.connectionStatus}</td>
@@ -89,6 +93,7 @@ const ListItems= () => {
                   
               </ul>
           </nav>
+          
       </div>
   )
 }
