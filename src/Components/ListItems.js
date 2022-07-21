@@ -11,6 +11,7 @@ const ListItems= () => {
     const [batteryList, setBatteryList] = useState([])
     const [paginatedList, setPaginatedList] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
+    const [searchResult, setSearchResult] = useState("")
     const [show, setShow] = useState(false)
 
     useEffect(() =>{
@@ -38,7 +39,13 @@ const ListItems= () => {
         }
         const pages = _.range(1, pageCount+1)
 
-      let list_data = paginatedList.map((item)=> {
+      let list_data = paginatedList.filter((value) =>{
+        if(searchResult ===""){
+          return value
+        } else if(value.id.toLowerCase().includes(searchResult.toLowerCase())){
+          return value
+        }
+      }).map((item)=> {
           
           if(item.location === null){
             correct_location = "NA";
@@ -65,6 +72,9 @@ const ListItems= () => {
 
   return (
     <div>
+      <input type="text"
+      placeholder="Search by battery id" 
+      onChange = {(e)=> setSearchResult(e.target.value)}/>
           <table className='center'>
               
                   <thead>
