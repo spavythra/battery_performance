@@ -53,7 +53,7 @@ table {
   align-items: center;
   justify-content: center;
   
-  
+  table-layout: fixed;
 }
 
 th, td {

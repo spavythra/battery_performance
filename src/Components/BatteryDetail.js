@@ -72,8 +72,8 @@ console.log(id)
               <span></span>
             </div>
             <ul class="nav">
-              <li><a href="#graph" class="active"><i class="fa fa-home"></i> Performance</a></li>
-              <li><a href="#info"><i class="fa fa-user"></i> Status</a></li>
+              <li><a href="#graph" class="active"><i class="fas fa-poll"></i> Performance</a></li>
+              <li><a href="#info"><i class="fas fa-toggle-on"></i> Status</a></li>
              
             </ul>
           </div>
@@ -124,7 +124,7 @@ console.log(id)
                         
                           <p><i className="fas fa-comments"></i>Connectivity : { status}</p>
                           <p><i className="fas fa-heart"></i>Healthiness : <span className="name">{health }</span></p>
-                          <p><i className="fas fa-exclamation-triangle"></i>Issues : <span style={{color:'red'}}>{issues}</span> </p>
+                          <p><i className="fas fa-exclamation-triangle"></i>Issues : <span style={{color:'#ff7376'}}>{issues}</span> </p>
                     </div>
                   </div>
                   
