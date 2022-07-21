@@ -58,45 +58,166 @@ console.log(id)
             issues = "N/A"
         }
         
-        return (<div className="main-container">
-
-        <div className="aside">
-          <div className="logo">
-          <h2>Battery Status</h2>
+      return(
+        <div>
+   
+        <div class="main-container">
           
-          </div>
-          {/* <div className="nav-toggler">
-          </div> */}
-          <ul className="nav"><li><p >Code : <span style={{color:'#9dffc8'}}>{ batteryList.id }</span></p></li>
-          { batteryList.location ? null : batteryList.location ="N/A" }
-            <li><p> <i className="fas fa-map-marker-alt"></i>{ batteryList.location }</p></li>
-            <li><p><i className="fas fa-bolt"></i> { batteryList.voltage  }V</p></li>
-            <li><p><i className="fas fa-battery-half"></i>{ charge}</p></li>
-            <li><p><i className="fas fa-broadcast-tower"></i>{ batteryList.lastConnectionTime.substring(0, 10)} @ { batteryList.lastConnectionTime.substring(11, 19)} </p></li>
-            
-            <li><p><i className="fa fa-comments"></i>Connection status : { status}</p></li>
-          </ul>
-        </div>
-        <div className="main-content">
-        <section className="home section" id="home">
-        <div className="container">
-          <div className="row">
-            <div className="home-info padd-15">
-            
-              <h3 className="hello">Battery Health : <span className="name">{health }</span></h3>
-              <h3 className="my-profession">Battery Capacity : <span className="typing" style={{color:'#9dffc8'}}>{batteryList.capacity  }Ah</span></h3>
-              <p>Issues : <span style={{color:'red'}}>{issues}</span> </p>
-             
-             
+          <div class="aside">
+            <div class="logo">
+              <a href="#"><span>Ba</span>ttery <span>Mo</span>nitoring</a>
+              
             </div>
-            
+            <div class="nav-toggler">
+              <span></span>
+            </div>
+            <ul class="nav">
+              <li><a href="#graph" class="active"><i class="fa fa-home"></i> Graph</a></li>
+              <li><a href="#info"><i class="fa fa-user"></i> Info</a></li>
+             
+            </ul>
+          </div>
+          
+          <div class="main-content">
+           
+            <section class="home section" id="graph">
+              <div class="container">
+                <div class="row">
+                  <div class="home-info padd-15">
+                    <h3 class="hello">Battery charge dynamics vs. time</h3>
+                    <Graph measurements={batteryList.measurements}/>
+                   
+                    
+                  </div>
+                 
+                 
+                </div>
+              </div>
+            </section>
+
+            <section class="about section" id="info">
+        <div class="container">
+          <div class="row">
+            <div class="section-title padd-15">
+              <h2>Battery Info</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="about-content padd-15">
+              
+              
+              <div class="row">
+                <div class="education padd-15">
+                <div class="row">
+                    <div class="timeline-box padd-15">
+                    <p >Code : <span style={{color:'#9dffc8'}}>{ batteryList.id }</span></p>
+                    { batteryList.location ? null : batteryList.location ="N/A" }
+                          <p> <i className="fas fa-map-marker-alt"></i>{ batteryList.location }</p>
+                    
+                         
+                          
+                            
+                        
+                          <p><i className="fas fa-bolt"></i> { batteryList.voltage  }V</p>
+                          <p><i className="fas fa-battery-half"></i>{ charge}</p>
+                          <p><i className="fas fa-broadcast-tower"></i>{ batteryList.lastConnectionTime.substring(0, 10)} @ { batteryList.lastConnectionTime.substring(11, 19)} </p>
+                        
+                          <p><i className="fas fa-comments"></i>Connectivity : { status}</p>
+                          <p><i className="fas fa-heart"></i>Healthiness : <span className="name">{health }</span></p>
+                          <p><i className="fas fa-exclamation-triangle"></i>Issues : <span style={{color:'red'}}>{issues}</span> </p>
+                    </div>
+                  </div>
+                  
+                  
+                </div>
+                <div class="experience padd-15">
+                <div class="row">
+                    <div class="timeline-box padd-15">
+                      {/* <h3 className="battery-title">Battery Health</h3> */}
+                    <div class="gauge">
+                              <div class="gauge__body">
+                              <div className="gauge__fill" style={{transform: `rotate(${batteryList.stateOfHealth / 200}turn)`}}></div>
+                              <div class="gauge__cover"><p>Health</p><p>{health}</p></div>
+                          </div>
+                          </div>
+                          {/* <h3 className="battery-title">Battery Charge</h3> */}
+                          <div class="gauge">
+                            
+                            <div class="gauge__body">
+                              <div className="gauge__fill" style={{transform: `rotate(${batteryList.stateOfCharge / 200}turn)`}}></div>
+                              <div class="gauge__cover"><p>Charge</p><p>{charge}</p></div>
+                            </div>
+                          </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+           
+       
+      
+           
+      
+         
+            {/* <section class="service section" id="info">
+              <div class="container">
+                <div class="row">
+                <div class="home-info padd-15">
+                      <div className="left">
+                      <div class="column">
+                            <div class="gauge">
+                              <div class="gauge__body">
+                              <div className="gauge__fill" style={{transform: `rotate(${batteryList.stateOfHealth / 200}turn)`}}></div>
+                              <div class="gauge__cover">{health}</div>
+                          </div>
+                          </div>
+                          <div class="gauge">
+                            <div class="gauge__body">
+                              <div className="gauge__fill" style={{transform: `rotate(${batteryList.stateOfCharge / 200}turn)`}}></div>
+                              <div class="gauge__cover">{batteryList.stateOfCharge}%</div>
+                            </div>
+                          </div>
+                          </div>  </div>  
+                        <div className="right">
+                        <div class="column">
+                          <h3 className="hello">Battery Health : <span className="name">{health }</span></h3>
+                          <p>Issues : <span style={{color:'red'}}>{issues}</span> </p>
+                          <p >Code : <span style={{color:'#9dffc8'}}>{ batteryList.id }</span></p>
+                            { batteryList.location ? null : batteryList.location ="N/A" }
+                          <p> <i className="fas fa-map-marker-alt"></i>{ batteryList.location }</p>
+                        
+                          <p><i className="fas fa-bolt"></i> { batteryList.voltage  }V</p>
+                          <p><i className="fas fa-battery-half"></i>{ charge}</p>
+                          <p><i className="fas fa-broadcast-tower"></i>{ batteryList.lastConnectionTime.substring(0, 10)} @ { batteryList.lastConnectionTime.substring(11, 19)} </p>
+                        
+                          <p><i className="fa fa-comments"></i>Connection status : { status}</p>
+                        </div></div> 
+                </div></div>
+                
+              </div>
+            </section> */}
+         
+      
+            
+            
+         
+      
+      
+          </div>
+        
       
         </div>
-        <Graph measurements={batteryList.measurements}/>
-        </div>)
+        
+      
+      
+        
+       
+      </div>
+      )
     }
 
 

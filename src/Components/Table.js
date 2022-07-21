@@ -2,14 +2,14 @@ import { useState, useMemo } from 'react'
 import { sortRows, filterRows, paginateRows } from './helpers'
 import { Pagination } from './Pagination'
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFacebook } from "@fortawesome/free-brands-svg-icons"
 
 export const Table = ({ columns, rows }) => {
   const [activePage, setActivePage] = useState(1)
   const [filters, setFilters] = useState({})
   const [sort, setSort] = useState({ order: 'asc', orderBy: 'id' })
   const rowsPerPage = 20
+  let correct_location="";
+  let correct_stateOfCharge = "";
 
   const filteredRows = useMemo(() => filterRows(rows, filters), [rows, filters])
   const sortedRows = useMemo(() => sortRows(filteredRows, sort), [filteredRows, sort])
@@ -51,11 +51,25 @@ export const Table = ({ columns, rows }) => {
   }
 
   return (
-    <>
+    <div className='table-container'>
     <div className='header'>
         <h1>Battery Monitoring System</h1>
         <h5>- Powered by Bamomas</h5>
       </div>
+
+      <div className='input-container'>
+        <div className='search-bar'>
+        <input
+        key={`id-search`}
+        type="search"
+        placeholder={`Search by id`}
+        value={filters["id"]}
+        onChange={(event) => handleSearch(event.target.value, "id")}/>
+        
+      </div>
+      <button onClick={clearAll}>Clear</button>
+     </div>
+      <div>
       <table>
         <thead>
           <tr>
@@ -63,32 +77,17 @@ export const Table = ({ columns, rows }) => {
               const sortIcon = () => {
                 if (column.accessor === sort.orderBy) {
                   if (sort.order === 'asc') {
-                    return <FontAwesomeIcon icon="fa-solid fa-sort-up" />
+                    return <i className="fas fa-caret-square-up" style={{color:"white", border:"transparent",fontSize:"20px"}}></i>
                   }
-                  return <FontAwesomeIcon icon="fa-solid fa-sort-up" />
+                  return <i className="fas fa-caret-square-down" style={{color:"white", border:"transparent",fontSize:"20px"}}></i>
                 } else {
-                  return <FontAwesomeIcon icon="fa-solid fa-sort-up" />
+                  return <i className="fas fa-caret-square-down" style={{color:"white", border:"transparent",fontSize:"20px"}}></i>
                 }
               }
               return (
                 <th key={column.accessor}>
                   <span>{column.label}</span>
-                  <button onClick={() => handleSort(column.accessor)}>{sortIcon()}</button>
-                </th>
-              )
-            })}
-          </tr>
-          <tr>
-            {columns.map((column) => {
-              return (
-                <th>
-                  <input
-                    key={`${column.accessor}-search`}
-                    type="search"
-                    placeholder={`Search ${column.label}`}
-                    value={filters[column.accessor]}
-                    onChange={(event) => handleSearch(event.target.value, column.accessor)}
-                  />
+                  <button style={{background:"#e37373", marginLeft:"5px", border:"none", width:"25px"}} onClick={() => handleSort(column.accessor)}>{sortIcon()}</button>
                 </th>
               )
             })}
@@ -96,19 +95,32 @@ export const Table = ({ columns, rows }) => {
         </thead>
         <tbody>
           {calculatedRows.map((row) => {
-            console.log(calculatedRows)
+          
+              if(row.location === null){
+                correct_location = "NA";
+              } else {
+                  correct_location= row.location
+              }
+    
+              if(row.stateOfCharge === null){
+                correct_stateOfCharge  = "NA";
+              } else {
+                correct_stateOfCharge = row.stateOfCharge
+              }
+    
             return (
               <tr key={row.id}>
 
                  <Link to={`/battery/${row.id}`} target='_blank' ><td>{row.id}</td></Link>
-                    <td>{row.location}</td>
-                    <td>{row.stateOfCharge }</td>
+                    <td>{correct_location}</td>
+                    <td>{correct_stateOfCharge }</td>
                     <td>{row.connectionStatus}</td></tr>)
               
             
           })}
         </tbody>
       </table>
+      </div>
 
       {count > 0 ? (
         <Pagination
@@ -122,11 +134,7 @@ export const Table = ({ columns, rows }) => {
         <p>No data found</p>
       )}
 
-      <div>
-        <p>
-          <button onClick={clearAll}>Clear all</button>
-        </p>
-      </div>
-    </>
+      
+    </div>
   )
 }

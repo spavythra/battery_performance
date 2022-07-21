@@ -1,11 +1,13 @@
 import React from 'react'
 import {Bar} from 'react-chartjs-2'
+import {Line} from 'react-chartjs-2'
 import Chart from 'chart.js/auto';
 
 function Graph({measurements}) {
     console.log(measurements)
 const data = {
     labels: measurements.map(item => item.timestamp),
+    // labels: [measurements[0].timestamp,measurements[measurements.length/2].timestamp,measurements[measurements.length-1].timestamp],
     datasets : [
         {
             label: "ddddd",
@@ -41,11 +43,10 @@ var options = {
     },
   }
 
-  return (
-    // <Line data={data}
-    // />
-    <Bar data={data}
+  return (<div className='chart'>
+    <Line data={data}
     />
+    </div>
   )
 }
 

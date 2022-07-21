@@ -11,8 +11,7 @@ const Home = () => {
         <h1>Battery Monitoring System</h1>
         <h5>- Powered by Bamomas</h5>
       </div>
-      {/* <ListItems/> */}
-      <AllItems/>
+      
     </div>
   );
 }

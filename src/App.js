@@ -44,7 +44,7 @@ function App() {
     { accessor: 'id', label: 'ID' },
     { accessor: 'location', label: 'Location' },
     { accessor: 'stateOfCharge', label: 'Charge (%)' },
-    { accessor: 'connectionStatus', label: 'Connection Status' },
+    { accessor: 'connectionStatus', label: '	Connection Status' },
   ]
 
   const [batteryList, setBatteryList] = useState([])
@@ -64,8 +64,9 @@ function App() {
 
       <Router>
       <div className="App">
-     
+      
       <Switch>
+      
             <Route exact path="/">
             <Table rows={batteryList} columns={columns} />
             </Route>
