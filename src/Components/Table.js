@@ -111,7 +111,7 @@ export const Table = ({ columns, rows }) => {
             return (
               <tr key={row.id}>
 
-                 <Link to={`/battery/${row.id}`} target='_blank' ><td>{row.id}</td></Link>
+                 <Link to={`/${row.id}`} target='_blank' ><td>{row.id}</td></Link>
                     <td>{correct_location}</td>
                     <td>{correct_stateOfCharge }</td>
                     <td>{row.connectionStatus}</td></tr>)

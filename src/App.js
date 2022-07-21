@@ -1,41 +1,9 @@
-
 import './App.css';
-import ListItems from './Components/ListItems';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './Components/Home';
 import BatteryDetail from './Components/BatteryDetail';
 import {useState, useEffect} from "react"
 import axios from "axios"
 import { Table } from './Components/Table'
-
-// function App() {
-//   return (
-//     <div className="App">
-      
-    //   <Router>
-    //   <div className="App">
-    //   <Switch>
-    //         <Route exact path="/">
-    //           <Home />
-    //         </Route>
-            
-    //         <Route path="/battery/:id">
-    //           <BatteryDetail />
-    //         </Route>
-          
-    //       </Switch>
-      
-    //   </div>
-    // </Router>
-        
-     
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
 import React from 'react'
 
 function App() {
@@ -58,26 +26,19 @@ function App() {
 
   return (
     <div className="App">
-      
-
-      
-
-      <Router>
-      <div className="App">
-      
+      <Router>   
       <Switch>
       
             <Route exact path="/">
             <Table rows={batteryList} columns={columns} />
             </Route>
             
-            <Route path="/battery/:id">
+            <Route path="/:id">
               <BatteryDetail />
             </Route>
           
           </Switch>
-      
-      </div>
+
     </Router>
       
     </div>

@@ -10,7 +10,7 @@ const data = {
     // labels: [measurements[0].timestamp,measurements[measurements.length/2].timestamp,measurements[measurements.length-1].timestamp],
     datasets : [
         {
-            label: "ddddd",
+            label: "Battery Charge",
             data: measurements.map(item => item.stateOfCharge),backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
