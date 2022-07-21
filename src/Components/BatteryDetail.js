@@ -72,8 +72,8 @@ console.log(id)
               <span></span>
             </div>
             <ul class="nav">
-              <li><a href="#graph" class="active"><i class="fa fa-home"></i> Graph</a></li>
-              <li><a href="#info"><i class="fa fa-user"></i> Info</a></li>
+              <li><a href="#graph" class="active"><i class="fa fa-home"></i> Performance</a></li>
+              <li><a href="#info"><i class="fa fa-user"></i> Status</a></li>
              
             </ul>
           </div>
@@ -99,7 +99,7 @@ console.log(id)
         <div class="container">
           <div class="row">
             <div class="section-title padd-15">
-              <h2>Battery Info</h2>
+              <h2>Battery Information</h2>
             </div>
           </div>
           <div class="row">
