@@ -54,7 +54,7 @@ export const Table = ({ columns, rows }) => {
     <div className='table-container'>
     <div className='header'>
         <h1>Battery Monitoring System</h1>
-        <h5>- Powered by Bamomas</h5>
+        <h5>- Powered by pavithra</h5>
       </div>
 
       <div className='input-container'>

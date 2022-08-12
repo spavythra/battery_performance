@@ -158,62 +158,8 @@ console.log(id)
         </div>
       </section>
            
-       
-      
-           
-      
-         
-            {/* <section class="service section" id="info">
-              <div class="container">
-                <div class="row">
-                <div class="home-info padd-15">
-                      <div className="left">
-                      <div class="column">
-                            <div class="gauge">
-                              <div class="gauge__body">
-                              <div className="gauge__fill" style={{transform: `rotate(${batteryList.stateOfHealth / 200}turn)`}}></div>
-                              <div class="gauge__cover">{health}</div>
-                          </div>
-                          </div>
-                          <div class="gauge">
-                            <div class="gauge__body">
-                              <div className="gauge__fill" style={{transform: `rotate(${batteryList.stateOfCharge / 200}turn)`}}></div>
-                              <div class="gauge__cover">{batteryList.stateOfCharge}%</div>
-                            </div>
-                          </div>
-                          </div>  </div>  
-                        <div className="right">
-                        <div class="column">
-                          <h3 className="hello">Battery Health : <span className="name">{health }</span></h3>
-                          <p>Issues : <span style={{color:'red'}}>{issues}</span> </p>
-                          <p >Code : <span style={{color:'#9dffc8'}}>{ batteryList.id }</span></p>
-                            { batteryList.location ? null : batteryList.location ="N/A" }
-                          <p> <i className="fas fa-map-marker-alt"></i>{ batteryList.location }</p>
-                        
-                          <p><i className="fas fa-bolt"></i> { batteryList.voltage  }V</p>
-                          <p><i className="fas fa-battery-half"></i>{ charge}</p>
-                          <p><i className="fas fa-broadcast-tower"></i>{ batteryList.lastConnectionTime.substring(0, 10)} @ { batteryList.lastConnectionTime.substring(11, 19)} </p>
-                        
-                          <p><i className="fa fa-comments"></i>Connection status : { status}</p>
-                        </div></div> 
-                </div></div>
-                
-              </div>
-            </section> */}
-         
-      
-            
-            
-         
-      
-      
           </div>
-        
-      
         </div>
-        
-      
-      
         
        
       </div>
