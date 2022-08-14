@@ -18,7 +18,8 @@ function App() {
   const [batteryList, setBatteryList] = useState([])
 
   useEffect(() =>{
-      axios.get('https://f2byongc84.execute-api.eu-central-1.amazonaws.com/webdev_test_fetch_batteries')
+      //axios.get('https://f2byongc84.execute-api.eu-central-1.amazonaws.com/webdev_test_fetch_batteries')
+      axios.get('batteryAPI.json')
       .then((response) => {
       setBatteryList( response.data );
   })
